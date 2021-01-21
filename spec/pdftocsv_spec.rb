@@ -7,13 +7,13 @@ RSpec.describe Pdftocsv do
 
   describe "self.parse" do
     it "converts pdf to csv" do
-      pages = Pdftocsv.parse('./spec/fixtures/files/example.pdf')
+      pages = Pdftocsv.parse("./spec/fixtures/files/example.pdf")
 
       aggregate_failures do
         expect(pages).to be_a(Array)
         expect(pages.map { |page| page.is_a?(Array) }).to be_all
-        expect(pages.map { |page| page.map { |rows| rows.is_a?(Array) }}).to be_all
-        expect(pages.map { |page| page.map { |rows| rows.map { |text| text.is_a?(String) }}}).to be_all
+        expect(pages.map { |page| page.map { |rows| rows.is_a?(Array) } }).to be_all
+        expect(pages.map { |page| page.map { |rows| rows.map { |text| text.is_a?(String) } } }).to be_all
       end
     end
   end
