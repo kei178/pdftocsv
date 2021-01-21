@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Kei178"]
   spec.email         = ["keisuke.inaba@hey.com"]
 
-  spec.summary       = "Parse PDF files to the CSV format"
-  spec.description   = "Parse PDF files to the CSV format"
+  spec.summary       = "Parsing PDF files to the CSV format"
+  spec.description   = "Parsing PDF files to the CSV format"
   spec.homepage      = "https://github.com/kei178/pdftocsv"
   spec.license       = "MIT"
   spec.required_ruby_version = Gem::Requirement.new(">= 2.4.0")
@@ -29,8 +29,7 @@ Gem::Specification.new do |spec|
   spec.executables   = spec.files.grep(%r{\Aexe/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
 
-  # Uncomment to register a new dependency of your gem
-  # spec.add_dependency "example-gem", "~> 1.0"
+  spec.add_dependency "pdf-reader", "~> 2.4.1"
 
   # For more information and examples about making a new gem, checkout our
   # guide at: https://bundler.io/guides/creating_gem.html
