@@ -14,17 +14,15 @@ module Pdftocsv
 
   def self.parse(file_path)
     @pages = []
-
     File.open(file_path, "rb") do |io|
       reader = PDF::Reader.new(io)
-      reader.pages.each { |page| append_csv!(page) }
+      reader.pages.each { |page| @pages << to_page_csv(page) }
     end
-
     @pages
   end
 
   class << self
-    def append_csv!(page)
+    def to_page_csv(page)
       page_csv = []
       # Separating a whole text
       text_lines = page.text.split("\n")
@@ -32,7 +30,7 @@ module Pdftocsv
         text_list = to_text_list(text_line)
         page_csv << text_list if text_list.any?
       end
-      @pages << page_csv
+      page_csv
     end
 
     def to_text_list(text_line)
