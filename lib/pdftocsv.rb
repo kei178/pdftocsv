@@ -19,6 +19,7 @@ module Pdftocsv
   #
   # Arguments:
   #   file_path: (String)
+
   def self.parse(file_path)
     @pages = []
     File.open(file_path, "rb") do |io|
@@ -30,7 +31,7 @@ module Pdftocsv
 
   class << self
     # Separating a whole page text by line
-    # 
+    #
     # Arguments:
     #   page: (String)
     def to_page_csv(page)
@@ -44,7 +45,7 @@ module Pdftocsv
     end
 
     # Separating a line by unit
-    # 
+    #
     # Arguments:
     #   text_line: (String)
     def to_text_list(text_line)
