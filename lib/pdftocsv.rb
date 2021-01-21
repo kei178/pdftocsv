@@ -11,7 +11,14 @@ require_relative "pdftocsv/version"
 # Parsing PDF files to the CSV format
 module Pdftocsv
   class Error < StandardError; end
-
+  # Parsing PDF files to the CSV format
+  #
+  # Example:
+  #   >> Pdftocsv.parse("example.pdf")
+  #   => [[['a1', 'b1', 'c1'], ['a2', 'b2', 'c2']], [['A1', 'B1', 'C1'], ['A2', 'B2', 'C2']]]
+  #
+  # Arguments:
+  #   file_path: (String)
   def self.parse(file_path)
     @pages = []
     File.open(file_path, "rb") do |io|
