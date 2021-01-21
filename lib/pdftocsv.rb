@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-# = pdftocsv.rb -- Parsing PDF files to the CSV format
+# = pdftocsv.rb -- Parsing PDF files to CSV-like data
 #
 # Created by Keisuke Inaba on 2021-01-20.
 
@@ -8,10 +8,10 @@ require "pdf-reader"
 
 require_relative "pdftocsv/version"
 
-# Parsing PDF files to the CSV format
+# Parsing PDF files to CSV-like data
 module Pdftocsv
   class Error < StandardError; end
-  # Parsing PDF files to the CSV format
+  # Parsing PDF files to CSV-like data
   #
   # Example:
   #   >> Pdftocsv.parse("example.pdf")
@@ -29,9 +29,12 @@ module Pdftocsv
   end
 
   class << self
+    # Separating a whole page text by line
+    # 
+    # Arguments:
+    #   page: (String)
     def to_page_csv(page)
       page_csv = []
-      # Separating a whole text
       text_lines = page.text.split("\n")
       text_lines.each do |text_line|
         text_list = to_text_list(text_line)
@@ -40,6 +43,10 @@ module Pdftocsv
       page_csv
     end
 
+    # Separating a line by unit
+    # 
+    # Arguments:
+    #   text_line: (String)
     def to_text_list(text_line)
       text_list = text_line.split("\s\s")
       text_list.delete_if { |text| text.nil? || text.empty? }

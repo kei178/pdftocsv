@@ -1,8 +1,6 @@
 # Pdftocsv
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/pdftocsv`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+This library offers a tool to enable you to convert PDF files to CSV-like data.
 
 ## Installation
 
@@ -14,15 +12,63 @@ gem 'pdftocsv'
 
 And then execute:
 
-    $ bundle install
+```
+$ bundle install
+```
 
 Or install it yourself as:
 
-    $ gem install pdftocsv
+```
+$ gem install pdftocsv
+```
 
 ## Usage
 
-TODO: Write usage instructions here
+```ruby
+file_path = 'example.pdf'
+pages = Pdftocsv.parse(file_path)
+```
+
+PDF example: [example.pdf](https://github.com/kei178/pdftocsv/blob/main/spec/fixtures/files/example.pdf)
+
+```ruby
+# == Parsed data example
+# pages.each do |page|
+#   page.each { |rows| p rows }
+# end
+
+["Invoice"]
+["DATE: [Enter date]"]
+["INVOICE Invoice Number"]
+["FROM:", "[Company Name]", "TO:", "[Client Name]"]
+["[Email]", "[Client Email Address"]
+["[Address 1]il Address", "[Address 1]"]
+["[Address 2]", "[Address 2]ress 1"]
+["[Phone]s 2", "[Phone] Address 2"]
+["TERMS: T[Payment Terms]"]
+["DUE:", "Due Datet Due Date]"]
+["Item Description", "Quantity", "Price", "Amount"]
+["Item1", "1.00"]
+["$ 10.00", "$ 10.00"]
+["Item2", "2.00"]
+["$ 10.00", "$ 20.00"]
+["Item3"]
+["1.00", "$ 20.00", "$ 20.00"]
+["Item4", "5.00"]
+["$ 5.00", "$ 25.00"]
+["Item5", "1.00"]
+["$ 8.00", "$ 8.00"]
+["$ 0.00"]
+["$ 0.00"]
+["$ 0.00"]
+["$ 0.00"]
+["$ 0.00"]
+["Subtotal", "$ 83.00"]
+["Tax"]
+["BALANCE DUE", "$ 83.00"]
+["Notes"]
+["EClick here to add notes or terms of service.here"]
+```
 
 ## Development
 
@@ -32,7 +78,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/pdftocsv. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/[USERNAME]/pdftocsv/blob/master/CODE_OF_CONDUCT.md).
+Bug reports and pull requests are welcome on GitHub at https://github.com/kei178/pdftocsv. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/kei178/pdftocsv/blob/main/CODE_OF_CONDUCT.md).
 
 ## License
 
@@ -40,4 +86,4 @@ The gem is available as open source under the terms of the [MIT License](https:/
 
 ## Code of Conduct
 
-Everyone interacting in the Pdftocsv project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/[USERNAME]/pdftocsv/blob/master/CODE_OF_CONDUCT.md).
+Everyone interacting in the Pdftocsv project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/kei178/pdftocsv/blob/main/CODE_OF_CONDUCT.md).
